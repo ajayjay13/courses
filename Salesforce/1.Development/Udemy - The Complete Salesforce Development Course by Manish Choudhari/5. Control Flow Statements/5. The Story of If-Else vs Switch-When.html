@@ -1,0 +1,41 @@
+<p>It is possible to use if-else statements instead of switch-when, but sometimes, <strong><em>using switch-when can drastically improve the readability of your code</em>.</strong> Let's compare the last two code examples with the help of switch-when and if-else statements.</p><p><br></p><p><em>/**</em></p><p><em> * Example 1</em></p><p><em> * Check what day is today.</em></p><p><em> * If it is a weekday, then print "Go to work."</em></p><p><em> * If it is Saturday, then print "Go to the party."</em></p><p><em> * Else print "Watch movies."</em></p><p><em> */</em></p><p><br></p><p><strong>Implemented with if-else</strong></p><pre class="prettyprint linenums">// Using if-else statements
+String today = 'Monday';
+if(today == 'Monday' || today == 'Tuesday' || today == 'Wednesday' || today == 'Thursday' || today == 'Friday'){
+	System.debug('Go to work');
+} else if (today == 'Saturday'){
+    System.debug('Go to party');
+} else {
+    System.debug('Watch movies');
+}</pre><p><br></p><p><strong>Implemented with switch-when</strong></p><pre class="prettyprint linenums">// Using switch-when statements
+String today = 'Monday';
+switch on today {
+    when 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' {
+        System.debug('Go to work');
+    }
+    when 'Saturday' {
+        System.debug('Go to party');
+    }
+    when else {
+        System.debug('Watch movies');
+    }
+}</pre><p><br></p><p><strong>Clearly, switch-when gives better readability in this example, and you can get rid of all OR (||) operators as well.</strong></p><p><br></p><p><br></p><p><em>/**</em></p><p><em> * Example 2</em></p><p><em> * Check the value of the current hour of the day.</em></p><p><em> * If it is less than 12 or between 1 to 11, then print "Good morning."</em></p><p><em> * If it is greater than or equals to 12 but less than 17, the print "Good afternoon."</em></p><p><em> * Else print "Good evening."</em></p><p><em> */</em></p><p><br></p><p><strong>Implemented with if-else</strong></p><pre class="prettyprint linenums"> // Using if-else statements
+ Integer currentHour = 12;
+ if(currentHour &lt; 12){
+     System.debug('Good Morning');
+ } else if (currentHour &gt;= 12 &amp;&amp; currentHour&lt;17){
+     System.debug('Good Afternoon');
+ } else{
+     System.debug('Good Evening');
+ }</pre><p><br></p><p><strong>Implemented with switch-when</strong></p><pre class="prettyprint linenums"> // Using switch-when statements
+ Integer currentHour = 12;
+ switch on currentHour {
+     when 0,1,2,3,4,5,6,7,8,9,10,11{
+         System.debug('Good Morning');
+     }
+     when 12,13,14,15,16{
+         System.debug('Good Afternoon');
+     }
+     when else {
+         System.debug('Good Evening');
+     }
+ }</pre><p><br></p><p><strong>In this example, I prefer if-else statement over switch-when, as the list of values we need to match is quite big, and a less than operator (&lt;) can simplify the code readability.</strong></p><p><br></p>
