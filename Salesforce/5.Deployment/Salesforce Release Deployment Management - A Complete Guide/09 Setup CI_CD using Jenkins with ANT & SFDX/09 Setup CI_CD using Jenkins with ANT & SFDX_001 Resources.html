@@ -1,0 +1,18 @@
+
+                <html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>001 Resources</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ci_jenkins_sample_walkthrough.htm" rel="noopener noreferrer" target="_blank">Jenkins File Walkthrough</a></p><p><br></p><p><strong>#Step1 - </strong></p><p>Generate Private Key&nbsp; - openssl genrsa -des3 -passout pass:x123 -out server.pass.key 2048</p><p><strong>Step2 - </strong></p><p>Generate Key file using private key - openssl rsa -passin pass:x123 -in server.pass.key -out server.key</p><p><strong>#Step3 -</strong> </p><p>Generate the certificate file - openssl req -new -key server.key -out server.csr</p><p><strong>#Step4 - </strong></p><p>Generate the SSL certificate - openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt</p><p><br></p><p><strong># Variables to Create in Environment variable</strong></p><p>HUB_ORG_DH - username of the target org</p><p>SFDC_HOST_DH - the login url</p><p>CONNECTED_APP_CONSUMER_KEY_DH - the connected application client id of the target org</p><p>JWT_CRED_ID_DH</p><p><br></p><p><strong>SFDX Url to connect Salesforce using JWT</strong></p><p>sfdx force:auth:jwt:grant --clientid&nbsp; CLIENT_ID_HERE --username USER_NAME_HERE --jwtkeyfile D:\UdemyCourses\Deployment\JWT\server.key -d --instanceurl https://test.salesforce.com/</p></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>
+                
